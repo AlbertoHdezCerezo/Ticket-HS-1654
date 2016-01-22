@@ -85,3 +85,38 @@
   font-size: 0.7em !important;
   font-family: 'montserratregular' !important;
 }
+
+.noVenuesLoaded {
+  height: 100vh !important;
+  width: 100vw !important;
+  vertical-align: middle !important;
+}
+
+.noVenuesLoaded h1 {
+  font-family: 'montserratregular' !important;
+  text-transform: uppercase !important;
+  margin-top: 35vh !important;
+}
+
+.cards {
+  margin-top: 70px !important;
+  margin-bottom: 49px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.ui.cards > .card > :last-child, .ui.card > :last-child {
+  border-radius: 0px !important;
+}
+
+.card {
+  border-radius: 0px !important;
+}
+
+.card .header {
+  font-family: 'montserratregular' !important;
+}
+
+.card .description {
+  font-family: 'ostrich_sansblack' !important;
+}

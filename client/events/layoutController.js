@@ -8,7 +8,11 @@ Template.layout.events({
       header: true,
       dynamicTyping: true,
       complete: function(results) {
-        data = results;
+        sAlert.success('File successfully loaded!', {effect: 'flip', timeout: 3000, onRouteClose: false});
+        Session.set( "venues", results );
+      },
+      error: function() {
+        sAlert.error('Errors detected when parsing CSV File', {effect: 'flip', timeout: 3000, onRouteClose: false});
       }
     });
   }
