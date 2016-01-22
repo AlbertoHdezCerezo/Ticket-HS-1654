@@ -1,0 +1,87 @@
+/* MAIN PAGE STYLE */
+/* --------------- */
+
+/* FONTS */
+/* ----- */
+@font-face {
+    font-family: 'montserratlight';
+    src: url('/fonts/montserrat-light-webfont.eot');
+    src: url('/fonts/montserrat-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/montserrat-light-webfont.woff2') format('woff2'),
+         url('/fonts/montserrat-light-webfont.woff') format('woff'),
+         url('/fonts/montserrat-light-webfont.ttf') format('truetype'),
+         url('/fonts/montserrat-light-webfont.svg#montserratlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserratregular';
+    src: url('/fonts/montserrat-regular-webfont.eot');
+    src: url('/fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('/fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('/fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('/fonts//fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'montserratultra_light';
+    src: url('/fonts/montserrat-ultralight-webfont.eot');
+    src: url('/fonts/montserrat-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/montserrat-ultralight-webfont.woff2') format('woff2'),
+         url('/fonts/montserrat-ultralight-webfont.woff') format('woff'),
+         url('/fonts/montserrat-ultralight-webfont.ttf') format('truetype'),
+         url('/fonts/montserrat-ultralight-webfont.svg#montserratultra_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ostrich_sansblack';
+    src: url('/fonts/ostrich-black-webfont.eot');
+    src: url('/fonts/ostrich-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/ostrich-black-webfont.woff2') format('woff2'),
+         url('/fonts/ostrich-black-webfont.woff') format('woff'),
+         url('/fonts/ostrich-black-webfont.ttf') format('truetype'),
+         url('/fonts/ostrich-black-webfont.svg#ostrich_sansblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ostrich_sansmedium';
+    src: url('/fonts/ostrich-regular-webfont.eot');
+    src: url('/fonts/ostrich-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/ostrich-regular-webfont.woff2') format('woff2'),
+         url('/fonts/ostrich-regular-webfont.woff') format('woff'),
+         url('/fonts/ostrich-regular-webfont.ttf') format('truetype'),
+         url('/fonts/ostrich-regular-webfont.svg#ostrich_sansmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ostrich_sans_roundedmedium';
+    src: url('/fonts/ostrich-rounded-webfont.eot');
+    src: url('/fonts/ostrich-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/ostrich-rounded-webfont.woff2') format('woff2'),
+         url('/fonts/ostrich-rounded-webfont.woff') format('woff'),
+         url('/fonts/ostrich-rounded-webfont.ttf') format('truetype'),
+         url('/fonts/ostrich-rounded-webfont.svg#ostrich_sans_roundedmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.headerMenu, .footerMenu {
+  font-size: 1.2em !important;
+  box-shadow: 0px 0px 0px 0px !important;
+	font-family: 'montserratregular' !important;
+}
+
+.headerMenu input {
+  font-size: 0.7em !important;
+  font-family: 'montserratregular' !important;
+}

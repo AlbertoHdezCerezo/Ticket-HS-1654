@@ -1,0 +1,34 @@
+<head>
+  <title>Hire Space - Challenge Ticket HS-1654</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" sizes="16x16 32x32" href="/img/icono.png?v=2">
+</head>
+
+<template name="layout">
+  <!-- HEADER -->
+  <div class="ui top fixed borderless menu headerMenu">
+    <div class="item">
+      <img class="ui small image" src="/img/headerLogo.png">
+    </div>
+    <div class="ui right item">
+      <div class="ui right aligned search item">
+        <div class="ui transparent icon input">
+          <input type="file" placeholder="Search animals...">
+          <i class="file icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="transitions-container" style="height:100%;">
+    {{>yield}}
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ui bottom fixed borderless one item inverted menu footerMenu">
+    <div class="item">
+      Alberto Hernández Cerezo - pascu216@gmail.com
+    </div>
+  </div>
+</template>
