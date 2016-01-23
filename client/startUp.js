@@ -20,5 +20,7 @@ Meteor.startup(function () {
 
   // Current venues in system
   Session.set( "venues", null );
-
+  Session.set( "venue", null );
+  Session.set( "pageTitle", null );
+  Session.set( "time", null );
 });

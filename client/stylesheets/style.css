@@ -120,3 +120,18 @@
 .card .description {
   font-family: 'ostrich_sansblack' !important;
 }
+
+.detailsHeader {
+  margin-top: 70px !important;
+  width: 100vw !important;
+  height: calc(50vh - 70px) !important;
+  background-image: url("/img/house.jpg") !important;
+}
+
+.detailsHeader h2 .content, .detailsContent h2 .content {
+  font-family: 'montserratultra_light' !important;
+}
+
+.detailsHeader h2 .sub.header, .detailsContent h2 .sub.header {
+  font-family: 'ostrich_sansblack' !important;
+}
