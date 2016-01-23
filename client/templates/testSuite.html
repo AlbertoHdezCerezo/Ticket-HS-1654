@@ -1,0 +1,22 @@
+<template name="testSuite">
+  <div class="transitions-content">
+    {{#if pageTitles}}
+      <div class="ui five stackable cards">
+        {{#each pageTitles}}
+          <div class="card">
+            <div class="content">
+              <div class="header">{{this}}</div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+    <div class="ui center aligned segment noVenuesLoaded">
+      <h1 class="ui center aligned icon header">
+        <i class="circular users icon"></i>
+        No venues loaded
+      </h1>
+    </div>
+    {{/if}}
+  </div>
+</template>

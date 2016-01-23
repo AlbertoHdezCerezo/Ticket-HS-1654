@@ -1,3 +1,5 @@
+// Mobile Select Friends Menu Helpers
+// ----------------------------------
 Template.dashboard.helpers({
   venues: function(){
     if( Session.get( "venues" ) ){

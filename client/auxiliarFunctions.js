@@ -1,5 +1,6 @@
-const TITLEBRAND = " - Hire Space";
+/* Constant for Title Construction*/
 const TITLEAT = " at ";
+const TITLEBRAND = " - Hire Space";
 
 /**
  * Merges to arrays in order based on their natural
@@ -14,8 +15,13 @@ merge = function(left, right){
       ir      = 0;
 
   while (il < left.length && ir < right.length){
-      leftWord = (left[il].VenueName + left[il].SpaceName + left[il].UsageName).replace(/\s/g, '').toUpperCase();
-      rightWord = (right[ir].VenueName + right[ir].SpaceName + right[ir].UsageName).replace(/\s/g, '').toUpperCase();
+      if( typeof left[il] === 'string' ){
+        leftWord = left[il];
+        rightWord = right[ir];
+      }else{
+        leftWord = (left[il].VenueName + left[il].SpaceName + left[il].UsageName).replace(/\s/g, '').toUpperCase();
+        rightWord = (right[ir].VenueName + right[ir].SpaceName + right[ir].UsageName).replace(/\s/g, '').toUpperCase();
+      }
 
       if (leftWord.localeCompare(rightWord) < 1){
         result.push(left[il++]);
@@ -50,78 +56,61 @@ mergeSort = function(items){
 }
 
 /**
- * Filter objects by properties
- * @param {Array} The array to filter
- * @param {Properties} Properties considered for filtering
- * @return {Array} Filtered elements
+ * Shorten string to desired length
+ * @param {String} string to short.
+ * @return {String} The shorted string.
  */
- findByMatchingProperties = function(array, properties) {
-   return array.filter(function (entry) {
-     return Object.keys(properties).every(function (key) {
-         return entry[key] === properties[key];
-     });
+String.prototype.trunc =
+function( n, useWordBoundary ){
+   var isTooLong = this.length > n,
+       s_ = isTooLong ? this.substr(0,n-1) : this;
+   s_ = (useWordBoundary && isTooLong) ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+   return  isTooLong ? s_ + '.' : s_;
+};
+
+/**
+ * Shorten string to desired length
+ * @param {Array} set of venues.
+ * @param {Venue} venue whose page title has to be generated.
+ * @return {String} page title.
+ */
+ pageTitleGenerator = function( venues,venue ){
+   spaceVenues = _.filter(venues, function(auxVenue){
+     return ( auxVenue.VenueName === venue.VenueName ) && ( auxVenue.SpaceName === venue.SpaceName );
    });
+   usageVenues = _.filter(venues, function(auxVenue){
+     return ( auxVenue.VenueName === venue.VenueName ) && ( auxVenue.UsageName === venue.UsageName );
+   });
+
+   /* Use Space for Page Title */
+   if( spaceVenues.length < 2 ){
+     switch (true) {
+       case (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56:
+         return (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND);
+         break;
+       case (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 && !usageVenues:
+         return (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND);
+         break;
+       case (venue.SpaceName + TITLEAT + venue.VenueName).length < 56:
+         return (venue.SpaceName + TITLEAT + venue.VenueName);
+         break;
+       case (venue.UsageName + TITLEAT + venue.VenueName).length < 56  && !usageVenues:
+         return (venue.UsageName + TITLEAT + venue.VenueName);
+         break;
+       default:
+         return (venue.SpaceName + TITLEAT + venue.VenueName).trunc(55,true);
+     }
+   /* Use Usage for Page Title */
+   }else{
+     switch (true) {
+       case (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56:
+         return (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND);
+         break;
+       case (venue.UsageName + TITLEAT + venue.VenueName).length < 56:
+         return (venue.UsageName + TITLEAT + venue.VenueName);
+         break;
+       default:
+         return (venue.UsageName + TITLEAT + venue.VenueName).trunc(55,true);
+     }
+   }
  }
-
-/**
- * Truncate String
- */
- String.prototype.trunc =
-  function( n, useWordBoundary ){
-    var isTooLong = this.length > n,s_ = isTooLong ? this.substr(0,n-1) : this;
-    s_ = (useWordBoundary && isTooLong) ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
-    return  isTooLong ? s_ + '&hellip;' : s_;
-  };
-
-/**
- * Generates Page Title for venue
- * @param {Array} The array for searching.
- * @param {Venue} Venue whose title has to be generated.
- * @return {String} Page Title.
- */
-pageTitleGenerator = function(venues,venue){
-  spaceVenues = findByMatchingProperties(venues, { VenueName: venue.VenueName , SpaceName: venue.SpaceName });
-  if( spaceVenues.length < 2 ){
-    switch(true){
-      case ( (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 ):
-        return venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND;
-        break;
-      case ( (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 ):
-        return venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND;
-        break;
-      case ( (venue.SpaceName + TITLEAT + venue.VenueName).length < 56 ):
-        return venue.SpaceName + TITLEAT + venue.VenueName;
-        break;
-      case ( (venue.UsageName + TITLEAT + venue.VenueName).length < 56 ):
-        return venue.UsageName + TITLEAT + venue.VenueName;
-        break;
-      default:
-        return venue.SpaceName.trunc(26) + TITLEAT + venue.VenueName.trunc(25);
-    }
-  }else{
-    spaceItem = _.find(spaceVenues, function(space){ return ( (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 || ( (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length > 56 && (venue.SpaceName + TITLEAT + venue.VenueName).length < 56 ) ); });
-    if( spaceItem && JSON.stringify(spaceItem[0]) === JSON.stringify(venue)  ){
-      switch(true){
-        case ( (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 ):
-          return venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND;
-          break;
-        case ( (venue.SpaceName + TITLEAT + venue.VenueName).length < 56 ):
-          return venue.SpaceName + TITLEAT + venue.VenueName;
-          break;
-        default:
-          return venue.SpaceName.trunc(26) + TITLEAT + venue.VenueName.trunc(25);
-      }
-    }else{
-      switch(true){
-        case ( (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 ):
-          return venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND;
-          break;
-        case ( (venue.UsageName + TITLEAT + venue.VenueName).length < 56 ):
-          return venue.UsageName + TITLEAT + venue.VenueName;
-          break;
-        default:
-          return venue.UsageName.trunc(26) + TITLEAT + venue.VenueName.trunc(25);
-      }
-    }
-  }
-}
