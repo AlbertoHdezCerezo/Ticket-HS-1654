@@ -75,10 +75,18 @@
     font-style: normal;
 }
 
-.headerMenu, .footerMenu {
-  font-size: 1.2em !important;
+.headerMenu, .footerMenu, .right.menu {
+  font-size: 1.1em !important;
   box-shadow: 0px 0px 0px 0px !important;
-	font-family: 'montserratregular' !important;
+}
+
+.footerMenu {
+  font-family: 'montserratregular' !important;
+}
+
+.right.menu {
+  border: 0px !important;
+  font-family: 'ostrich_sansblack' !important;
 }
 
 .headerMenu input {
@@ -119,6 +127,14 @@
 
 .card .description {
   font-family: 'ostrich_sansblack' !important;
+}
+
+.card .extra.content {
+  padding:0px !important;
+}
+
+.card .extra.content .segment {
+  height: 34px !important;
 }
 
 .detailsHeader, .detailsContent {

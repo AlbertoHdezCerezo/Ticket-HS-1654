@@ -20,6 +20,15 @@
   * @return {Boolean} Are there repeated page titles?
   */
   isRepeated = function(pageTitles) {
-    uniquePageTitles = _.uniq(pageTitles);
-    return pageTitles.length === uniquePageTitles.length;
+    titles = mergeSort(generateListPageTitles( Session.get( "venues" ) ));
+    var dupTitles = [];
+    var groupedByCount = _.countBy(titles, function (title) {return title;});
+
+    repeated = false;
+    for (var name in groupedByCount) {
+      if (groupedByCount[name] > 1) {
+        repeated = true;
+      }
+    };
+    return repeated;
   }
