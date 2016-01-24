@@ -68,6 +68,9 @@ function( n, useWordBoundary ){
    return  isTooLong ? s_ + '.' : s_;
 };
 
+/* ALGORITHM */
+/* ========= */
+
 /**
  * Shorten string to desired length
  * @param {Array} set of venues.

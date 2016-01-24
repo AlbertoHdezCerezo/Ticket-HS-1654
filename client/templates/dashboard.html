@@ -1,35 +1,34 @@
+<!-- MAIN PAGE -->
 <template name="dashboard">
-  <div class="transitions-content">
-    {{#if venues}}
-      <div class="ui four stackable cards">
-        {{#each venues}}
-          <div class="card">
-            <div class="image">
-              <img src="/img/house.jpg">
+  {{#if venues}}
+    <div class="ui four stackable cards">
+      {{#each venues}}
+        <div class="card">
+          <div class="image">
+            <img src="/img/house.jpg">
+          </div>
+          <div class="content">
+            <div class="header">{{VenueName}}</div>
+            <div class="meta">
+              <span class="date">{{UsageName}}</span>
             </div>
-            <div class="content">
-              <div class="header">{{VenueName}}</div>
-              <div class="meta">
-                <span class="date">{{UsageName}}</span>
-              </div>
-              <div class="description">
-                {{SpaceName}}
-              </div>
-            </div>
-            <div class="ui bottom attached blue button">
-              <i class="zoom icon"></i>
-              See details
+            <div class="description">
+              {{SpaceName}}
             </div>
           </div>
-        {{/each}}
-      </div>
-    {{else}}
-    <div class="ui center aligned segment noVenuesLoaded">
-      <h1 class="ui center aligned icon header">
-        <i class="circular users icon"></i>
-        No venues loaded
-      </h1>
+          <div class="ui bottom attached blue button">
+            <i class="zoom icon"></i>
+            See details
+          </div>
+        </div>
+      {{/each}}
     </div>
-    {{/if}}
+  {{else}}
+  <div class="ui center aligned segment noVenuesLoaded">
+    <h1 class="ui center aligned icon header">
+      <i class="circular users icon"></i>
+      No venues loaded
+    </h1>
   </div>
+  {{/if}}
 </template>

@@ -15,8 +15,5 @@ Template.testSuite.helpers({
       }
     };
     return dupTitles;
-  },
-  isRepeated: function(){
-    return isRepeated( generateListPageTitles( Session.get( "venues" ) ) );
   }
 });

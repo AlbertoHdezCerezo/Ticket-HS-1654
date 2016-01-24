@@ -75,6 +75,9 @@
     font-style: normal;
 }
 
+/* LAYOUT */
+/* ------ */
+
 .headerMenu, .footerMenu, .right.menu {
   font-size: 1.1em !important;
   box-shadow: 0px 0px 0px 0px !important;
@@ -93,6 +96,14 @@
   font-size: 0.7em !important;
   font-family: 'montserratregular' !important;
 }
+
+.invertedLink {
+  background-color: #000 !important;
+  color: #FFF !important;
+}
+
+/* DASHBOARD */
+/* --------- */
 
 .noVenuesLoaded {
   height: 100vh !important;
@@ -136,6 +147,9 @@
 .card .extra.content .segment {
   height: 34px !important;
 }
+
+/* DETAILS */
+/* ------- */
 
 .detailsHeader, .detailsContent {
   width: 100vw !important;

@@ -1,6 +1,5 @@
 // Code runned when client is executed:
 // ====================================
-
 Meteor.startup(function () {
 
   // Notification initializer
@@ -13,10 +12,6 @@ Meteor.startup(function () {
       stack: true,
       offset: 0
   });
-
-  // Page Transition initializer
-  Transitions.transitionOut = 'slideLeftOut';
-  Transitions.transitionIn = 'slideLeftIn';
 
   // Current venues in system
   Session.set( "venues", null );

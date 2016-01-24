@@ -1,5 +1,5 @@
-// Switch language controller
-// --------------------------
+// CSV Parser:
+// -----------
 Template.layout.events({
   "change input": function(event, template){
      var file = event.currentTarget.files[0];

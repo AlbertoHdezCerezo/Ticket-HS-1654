@@ -1,45 +1,44 @@
+<!-- TEST SUITE PAGE -->
 <template name="testSuite">
-  <div class="transitions-content">
-    {{#if pageTitles}}
-      <div class="ui five stackable cards">
-        {{#each repeatedTitles}}
-          <div class="card">
-            <div class="content">
-              <div class="header">{{this}}</div>
-            </div>
-            <div class="extra content">
-              <div class="ui red inverted basic segment">
-                <span class="left floated like">
-                  <i class="edit icon"></i>
-                  {{this.length}} Characters
-                </span>
-              </div>
+  {{#if pageTitles}}
+    <div class="ui five stackable cards">
+      {{#each repeatedTitles}}
+        <div class="card">
+          <div class="content">
+            <div class="header">{{this}}</div>
+          </div>
+          <div class="extra content">
+            <div class="ui red inverted basic segment">
+              <span class="left floated like">
+                <i class="edit icon"></i>
+                {{this.length}} Characters
+              </span>
             </div>
           </div>
-        {{/each}}
-        {{#each pageTitles}}
-          <div class="card">
-            <div class="content">
-              <div class="header">{{this}}</div>
-            </div>
-            <div class="extra content">
-              <div class="ui blue inverted basic segment">
-                <span class="left floated like">
-                  <i class="edit icon"></i>
-                  {{this.length}} Characters
-                </span>
-              </div>
+        </div>
+      {{/each}}
+      {{#each pageTitles}}
+        <div class="card">
+          <div class="content">
+            <div class="header">{{this}}</div>
+          </div>
+          <div class="extra content">
+            <div class="ui blue inverted basic segment">
+              <span class="left floated like">
+                <i class="edit icon"></i>
+                {{this.length}} Characters
+              </span>
             </div>
           </div>
-        {{/each}}
-      </div>
-    {{else}}
-    <div class="ui center aligned segment noVenuesLoaded">
-      <h1 class="ui center aligned icon header">
-        <i class="circular file input icon"></i>
-        Test Not Executed: venues not loaded
-      </h1>
+        </div>
+      {{/each}}
     </div>
-    {{/if}}
+  {{else}}
+  <div class="ui center aligned segment noVenuesLoaded">
+    <h1 class="ui center aligned icon header">
+      <i class="circular file input icon"></i>
+      Test Not Executed: venues not loaded
+    </h1>
   </div>
+  {{/if}}
 </template>

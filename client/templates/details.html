@@ -1,33 +1,32 @@
+<!-- VENUE DETAILS -->
 <template name="details">
-  <div class="transitions-content">
-    {{#if venue}}
-      <div class="ui basic segment detailsHeader">
-        <div class="ui bottom attached blue label">
-          <h2 class="ui inverted header">
-            <i class="university icon"></i>
-            <div class="content">
-              {{venue.VenueName}}
-              <div class="sub header">{{venue.SpaceName}} - {{venue.UsageName}}</div>
-            </div>
-          </h2>
-        </div>
-      </div>
-      <div class="ui basic center aligned segment detailsContent">
-        <h2 class="ui icon centered header">
-          <i class="file text icon"></i>
+  {{#if venue}}
+    <div class="ui basic segment detailsHeader">
+      <div class="ui bottom attached blue label">
+        <h2 class="ui inverted header">
+          <i class="university icon"></i>
           <div class="content">
-            {{pageTitle}}
-            <div class="sub header"> Title generated in {{time}} miliseconds</div>
+            {{venue.VenueName}}
+            <div class="sub header">{{venue.SpaceName}} - {{venue.UsageName}}</div>
           </div>
         </h2>
       </div>
-    {{else}}
-      <div class="ui center aligned segment noVenuesLoaded">
-        <h1 class="ui center aligned icon header">
-          <i class="circular unhide icon"></i>
-          No venue select!
-        </h1>
-      </div>
-    {{/if}}
-  </div>
+    </div>
+    <div class="ui basic center aligned segment detailsContent">
+      <h2 class="ui icon centered header">
+        <i class="file text icon"></i>
+        <div class="content">
+          {{pageTitle}}
+          <div class="sub header"> Title generated in {{time}} miliseconds</div>
+        </div>
+      </h2>
+    </div>
+  {{else}}
+    <div class="ui center aligned segment noVenuesLoaded">
+      <h1 class="ui center aligned icon header">
+        <i class="circular unhide icon"></i>
+        No venue select!
+      </h1>
+    </div>
+  {{/if}}
 </template>

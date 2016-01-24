@@ -23,16 +23,14 @@
           </div>
         </div>
       </div>
-      <a class="ui item">
+      <a class="ui item {{#if inTestSuite}} invertedLink {{/if}}" href="{{#if inTestSuite}} {{pathFor route='landingpage'}} {{else}} {{pathFor route='testSuite'}} {{/if}}">
         Test Suite
       </a>
     </div>
   </div>
 
   <!-- CONTENT -->
-  <div class="transitions-container" style="height:100%;">
-    {{>yield}}
-  </div>
+  {{> yield}}
 
   <!-- FOOTER -->
   <div class="ui bottom fixed borderless one item inverted menu footerMenu">
