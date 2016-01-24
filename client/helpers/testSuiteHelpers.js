@@ -1,9 +1,11 @@
 Template.testSuite.helpers({
   pageTitles: function(){
     var start = new Date().getTime();
-    result = mergeSort(generateListPageTitles( Session.get( "venues" ) ));
+    result = generateListPageTitles( Session.get( "venues" ));
     var end = new Date().getTime();
     var time = end - start;
+
+    result = _.sortBy(result, function(venue){ return venue });
 
     if( Session.get( "venues" ) ){
       Session.set("time",time);
@@ -12,7 +14,7 @@ Template.testSuite.helpers({
     return result;
   },
   repeatedTitles: function(){
-    titles = mergeSort(generateListPageTitles( Session.get( "venues" ) ));
+    titles = _.sortBy(generateListPageTitles( Session.get( "venues" ) ), function(venue){ return venue });
     var dupTitles = [];
     var groupedByCount = _.countBy(titles, function (title) {return title;});
 
