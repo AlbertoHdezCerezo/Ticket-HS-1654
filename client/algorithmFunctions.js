@@ -38,13 +38,13 @@ function( n, useWordBoundary ){
        case (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56:
          return (venue.SpaceName + TITLEAT + venue.VenueName + TITLEBRAND);
          break;
-       case (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 && !usageVenues:
+       case (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND).length < 56 && usageVenues.length < 2:
          return (venue.UsageName + TITLEAT + venue.VenueName + TITLEBRAND);
          break;
        case (venue.SpaceName + TITLEAT + venue.VenueName).length < 56:
          return (venue.SpaceName + TITLEAT + venue.VenueName);
          break;
-       case (venue.UsageName + TITLEAT + venue.VenueName).length < 56  && !usageVenues:
+       case (venue.UsageName + TITLEAT + venue.VenueName).length < 56  && usageVenues.length < 2:
          return (venue.UsageName + TITLEAT + venue.VenueName);
          break;
        default:
