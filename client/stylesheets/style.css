@@ -148,6 +148,11 @@
   height: 34px !important;
 }
 
+.teal.card, .teal.card .content .header{
+  background-color: #00b5ad !important;
+  color: #FFF !important;
+}
+
 /* DETAILS */
 /* ------- */
 

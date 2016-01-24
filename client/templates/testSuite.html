@@ -2,6 +2,11 @@
 <template name="testSuite">
   {{#if pageTitles}}
     <div class="ui five stackable cards">
+      <div class="teal inverted card">
+        <div class="content">
+          <div class="header">Test Suite executed in {{time}} miliseconds</div>
+        </div>
+      </div>
       {{#each repeatedTitles}}
         <div class="card">
           <div class="content">

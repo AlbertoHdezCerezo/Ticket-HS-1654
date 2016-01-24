@@ -9,7 +9,6 @@ Template.layout.events({
       dynamicTyping: true,
       complete: function(results) {
         sAlert.success('File successfully loaded!', {effect: 'flip', timeout: 3000, onRouteClose: false});
-        /*Session.set( "venues", mergeSort(results.data) );*/
         Session.set( "venues", _.uniq(mergeSort(results.data), function(item){ return JSON.stringify(item); }) );
       },
       error: function() {
